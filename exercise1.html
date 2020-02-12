@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126618926-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-126618926-2');
+  </script>
+  <!--JS for image rollovers -->
+  <script>
+    var image_1 = new Image(150,200);
+    image_1.src = "sm1_sunrise.jpg";
+    var image_1_over = new Image(150,200);
+    image_1_over.src = "sm2_impa.jpg";
+    var image_2 = new Image(200,150);
+    image_2.src = "sm3_shelly.jpg";
+    var image_2_over = new Image(200,150);
+    image_2_over.src = "sm4_coders.jpg";
+  </script>
+
+  <script type="text/javascript">
+    function createLayout(layoutOption) {
+      //console.log("createLayout with layoutOption = " + layoutOption);
+    }
+  </script>
+
+  <!--Create Layout JS function -->
+  <script type="text/javascript">
+    var currentLayout = "rightSidebar";
+    var counterArray = [0, 0, 0, 0];
+    function createLayout(layoutOption) {
+      console.log("createLayout with layoutOption BEFORE=" + layoutOption);
+      if (currentLayout == layoutOption) {
+        return;
+      } else {
+        currentLayout = layoutOption;
+        console.log("AFTER =");
+        //increment counterArray
+        if (layoutOption == "linear") {
+          counterArray[0] = counterArray[0] + 1;
+          document.getElementById("linear").innerHTML = "Linear (" + counterArray[0] + ")";
+          document.getElementById("sideBar").style.float = "none";
+          document.getElementById("sideBar").style.width = "100%";
+          document.getElementById("section1").style.width = "100%";
+          document.getElementById("section1").style.float = "none";
+          document.getElementById("sideBar").style.marginTop = "10px";
+        }
+        else if (layoutOption == "rightSidebar") {
+          counterArray[1] = counterArray[1] + 1;
+          document.getElementById("rightSidebar").innerHTML = "Right Sidebar (" + counterArray[1] + ")";
+          document.getElementById("sideBar").style.float = "right";
+          document.getElementById("sideBar").style.width = "25%";
+          document.getElementById("section1").style.width = "100%";
+          document.getElementById("section1").style.float = "none";
+          document.getElementById("sideBar").style.marginTop = "10px";
+        }
+        else if (layoutOption == "centerSidebar") {
+          counterArray[2] = counterArray[2] + 1;
+          document.getElementById("centerSidebar").innerHTML = "Center Sidebar (" + counterArray[2] + ")";
+          document.getElementById("sideBar").style.float = "left";
+          document.getElementById("sideBar").style.width = "25%";
+          document.getElementById("section1").style.width = "30%";
+          document.getElementById("section1").style.float = "left";
+          document.getElementById("figure1").style.float = "right";
+          document.getElementById("sideBar").style.marginTop = "25px";
+        }
+        else if (layoutOption == "leftSidebar") {
+          counterArray[3] = counterArray[3] + 1;
+          document.getElementById("leftSidebar").innerHTML = "Left Sidebar (" + counterArray[3] + ")";
+          document.getElementById("sideBar").style.float = "left";
+          document.getElementById("sideBar").style.width = "25%";
+          document.getElementById("section1").style.width = "100%";
+          document.getElementById("section1").style.float = "none";
+          document.getElementById("sideBar").style.marginTop = "10px";
+        }
+      }
+    }
+  </script>
+
+  <title>Live Coding</title>
+  <style>
+    body {
+      width: 800px;
+      line-height: 1.25;
+      font-family: Helvetica;
+      background-color: #eaedf2;
+    }
+    footer {
+      clear: both;
+    }
+    section {
+      margin-bottom: 5px;
+    }
+    h1 {
+      margin-bottom: 0px;
+      line-height: 1.0;
+    }
+    h3 {
+      line-height: 1.0;
+    }
+    figure {
+      margin-left: 5px;
+    }
+    button {
+      background-color: #c5cd96;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+    }
+    #sideBar {
+      float: right;
+      border-style: solid;
+      border-width: medium;
+      width: 25%;
+      height: 200px;
+      background-color: #c5cd96;
+      padding: 5px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+    #section1 {
+      margin-right: 10px;
+    }
+    .floatLeft {
+      float: left;
+      margin-right: 15px;
+      margin-bottom: 5px;
+    }
+  </style>
+
+</head>
+<body>
+  <div>
+    <nav>
+      Link 1 | Link 2 | Link 3
+    </nav>
+    <br>
+    <!--Buttons -->
+    <div>
+      <strong>Layout:</strong>
+      <button type="button" name="linear" id="linear" onclick="createLayout('linear')">Linear</button>
+      <button type="button" name="rightSidebar" id="rightSidebar" onclick="createLayout('rightSidebar')">Right Sidebar</button>
+      <button type="button" name="centerSidebar" id="centerSidebar" onclick="createLayout('centerSidebar')">Center Sidebar</button>
+      <button type="button" name="leftSidebar" id="leftSidebar" onclick="createLayout('leftSidebar')">Left Sidebar</button>
+    </div>
+    <!--Content -->
+    <section id="section1">
+      <figure id="figure1">
+        <img class="floatLeft" src="sm1_sunrise.jpg" alt="Sugarloaf Mountain at sunrise" name="img1" onmouseover="document.img1.src = image_1_over.src" onmouseout="document.img1.src = image_1.src">
+      </figure>
+      <h1>Live Coding Music Conference</h1>
+      <h3>Rio de Janeiro, Feb 4-7, 2019</h3>
+      <p>I feel very fortunate to have spent the last week in Rio de Janeiro attending a conference at the Instituto de Matematica Pura e Aplicada.  I was invited to perform at their Live Coding Music Conference along with nine other coders from the Americas and Europe.  My collaborator Derek and I flew our instruments and laptops down there, not knowing what to expect and knowing no Portuguese and little advanced mathematics.  I got a chance to spend two days before the conference exploring neighborhoods, going to beaches, attending rehearsals for Carnaval, and eating fruit.  Rio is beautiful, and I did not want to come back to two more months of winter in Detroit.
+      </p>
+    </section>
+    <aside id="sideBar">
+      <strong>Live Coding Tools</strong>
+      <p>SuperCollider</p>
+      <p>TidalCycles</p>
+      <p>ChucK</p>
+      <p>Processing</p>
+      <p>The Force</p>
+    </aside>
+    <section id="section2">
+      <figure id="figure2">
+        <img class="floatLeft" src="sm3_shelly.jpg" alt="Projected code" name="img2" onmouseover="document.img2.src = image_2_over.src" onmouseout="document.img2.src = image_2.src">
+      </figure>
+      <p>The conference itself featured musicians, visual artists, game designers, and mathematicians, all of whom do live coding.  My collaborator Derek and I performed an electroacoustic duo using trumpet, saxophone, SuperCollider, and ChucK.  The conference was a great excuse to improve my live coding chops and my pre-created bank of digitally synthesized sounds; it also inspired me with ways I can make my performance better and take advantage of new technologies.  It was an aesthetically diverse and nice group of people to meet, and we’re planning to continue collaborating using some of the networking tools developed at IMPA.  I never thought live coding would be a major part of my practice, but it seems there are lots of opportunities for development because of the newness of the medium.  Live coding has its limitations as a performance form; it can be boring and slow-paced, it can be overly static, and many of its practitioners are computer scientists more than they are artists.  Nevertheless, this community of people is working to make live coding a serious way to perform.
+      </p>
+    </section>
+    <footer><em>For more information about IMPA's Live Coding conference, visit their <a href="https://impa.br/en_US/eventos-do-impa/eventos-2019/live-code-experience/" target="blank">website</a>.</em></footer>
+  </div>
+</body>
+</html>
